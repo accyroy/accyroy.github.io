@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .slider {
+            width: 100%;
+        }
+        .output {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        .unit {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Amount Converter</h1>
+    <input type="range" min="0" max="100" value="0" class="slider" id="amountSlider">
+    <p>Selected Amount: <span id="selectedAmount">0</span></p>
+
+    <div class="output">
+        <div class="unit">In Kilograms: <span id="kgOutput">0</span> kg</div>
+        <div class="unit">In Grams: <span id="gramsOutput">0</span> g</div>
+        <div class="unit">In Pounds: <span id="lbsOutput">0</span> lbs</div>
+    </div>
+</div>
+
+<script>
+    const slider = document.getElementById("amountSlider");
+    const selectedAmount = document.getElementById("selectedAmount");
+    const kgOutput = document.getElementById("kgOutput");
+    const gramsOutput = document.getElementById("gramsOutput");
+    const lbsOutput = document.getElementById("lbsOutput");
+
+    slider.oninput = function () {
+        let amount = this.value;
+        selectedAmount.textContent = amount;
+        kgOutput.textContent = amount;
+        gramsOutput.textContent = amount * 1000;
+        lbsOutput.textContent = (amount * 2.20462).toFixed(2);
+    }
+</script>
+
+</body>
+</html>
