@@ -172,7 +172,7 @@
         // Calculate and update the annual income based on price and biomethane volume
         let annualBiomethane = baseValues.m3Biomethane * pigs / basePigs;
         let income = annualBiomethane * price;
-        annualIncome.textContent = income.toFixed(2).toLocaleString();
+        annualIncome.textContent = parseFloat(income.toFixed(2)).toLocaleString();
     };
 
     // Update values when sliders are moved
