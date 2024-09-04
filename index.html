@@ -102,7 +102,7 @@
         <div class="unit">Generated Biogas (scfm): <span id="biogasScfm">136</span> scfm</div>
         <div class="unit">Generated Biogas (m³/h): <span id="biogasM3h">231.064</span> m³/h</div>
         <div class="unit">Generated Biogas (L/min): <span id="biogasLmin">3,851.0848</span> L/min</div>
-        <div class="unit">Efficiency: <span id="efficiency">0.6323</span></div>
+
         <div class="unit">Generated Biomethane (scfm): <span id="biomethaneScfm">86</span> scfm</div>
         <div class="unit">Generated Biomethane (m³/h): <span id="biomethaneM3h">146.114</span> m³/h</div>
         <div class="unit">Generated Biomethane (L/min): <span id="biomethaneLmin">2,435.2448</span> L/min</div>
@@ -124,7 +124,7 @@
     const biogasScfm = document.getElementById("biogasScfm");
     const biogasM3h = document.getElementById("biogasM3h");
     const biogasLmin = document.getElementById("biogasLmin");
-    const efficiency = document.getElementById("efficiency");
+
     const biomethaneScfm = document.getElementById("biomethaneScfm");
     const biomethaneM3h = document.getElementById("biomethaneM3h");
     const biomethaneLmin = document.getElementById("biomethaneLmin");
@@ -140,7 +140,7 @@
         biogasScfm: 136,
         biogasM3h: 231.064,
         biogasLmin: 3851.0848,
-        efficiency: 0.632325294,
+
         biomethaneScfm: 86,
         biomethaneM3h: 146.114,
         biomethaneLmin: 2435.2448,
@@ -160,7 +160,7 @@
         biogasScfm.textContent = (baseValues.biogasScfm * pigs / basePigs).toFixed(2).toLocaleString();
         biogasM3h.textContent = (baseValues.biogasM3h * pigs / basePigs).toFixed(3).toLocaleString();
         biogasLmin.textContent = (baseValues.biogasLmin * pigs / basePigs).toFixed(4).toLocaleString();
-        efficiency.textContent = baseValues.efficiency.toFixed(4); // Assuming efficiency remains constant
+ 
         biomethaneScfm.textContent = (baseValues.biomethaneScfm * pigs / basePigs).toFixed(2).toLocaleString();
         biomethaneM3h.textContent = (baseValues.biomethaneM3h * pigs / basePigs).toFixed(3).toLocaleString();
         biomethaneLmin.textContent = (baseValues.biomethaneLmin * pigs / basePigs).toFixed(4).toLocaleString();
