@@ -38,8 +38,8 @@
 
 <div class="container">
     <h1>Pig Waste Converter</h1>
-    <input type="range" min="0" max="100000" value="47000" class="slider" id="pigSlider">
-    <p>Number of Pigs: <span id="selectedPigs">47000</span></p>
+    <input type="range" min="1" max="100000" value="23500" class="slider" id="pigSlider">
+    <p>Number of Pigs: <span id="selectedPigs">23500</span></p>
 
     <div class="output">
         <div class="unit">Generated Biogas (scfm): <span id="biogasScfm">136</span> scfm</div>
@@ -73,7 +73,7 @@
     const m3Biomethane = document.getElementById("m3Biomethane");
     const mwhOutput = document.getElementById("mwhOutput");
 
-    const basePigs = 47000;
+    const basePigs = 23500;
     
     const baseValues = {
         biogasScfm: 136,
