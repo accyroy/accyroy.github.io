@@ -36,13 +36,14 @@
             clip-path: inset(0 15% 0 0); /* Crops 20% of the right side */
         }
         .dynamic-image {
-        width: 100%;
-        max-width: 100%; /* Ensures the image fits within the container */
-        height: auto; /* Maintain aspect ratio */
+        width: 100%; /* The image will take full width of its container */
+        max-width: 500px; /* Set a maximum width for the image */
+        height: 300px; /* Set a fixed height */
+        object-fit: cover; /* Ensures the image covers the container while maintaining aspect ratio */
         margin: 20px 0;
         border: 5px solid #c8e6c9; /* Add a greenish border */
-        border-radius: 10px; /* Make the corners rounded */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
         }
         h1 {
             color: #2e7d32; /* Dark green title */
