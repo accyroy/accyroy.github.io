@@ -25,7 +25,7 @@
             width: 100%;
         }
         .logo {
-            max-width: 200px; /* Set the width of the logo */
+            max-width: 150px; /* Set the width of the logo */
             margin-bottom: 20px; /* Space between logo and heading */
         }
         h1 {
@@ -86,9 +86,16 @@
     <img src="https://roesleinalternativeenergy.com/wp-content/uploads/2018/02/RAE-Logo-2.png" alt="RAE Logo" class="logo">
     
     <h1>Pig Waste Converter</h1>
+    
+    <!-- Slider for Number of Pigs -->
     <input type="range" min="1" max="100000" value="23500" class="slider" id="pigSlider">
     <p>Number of Pigs: <span id="selectedPigs">23500</span></p>
 
+    <!-- Slider for Price per m³ -->
+    <input type="range" min="0.01" max="1" value="0.10" step="0.01" class="slider" id="priceSlider">
+    <p>Price per m³ of Biomethane: €<span id="selectedPrice">0.10</span></p>
+
+    <!-- Output Section -->
     <div class="output">
         <div class="unit">Generated Biogas (scfm): <span id="biogasScfm">136</span> scfm</div>
         <div class="unit">Generated Biogas (m³/h): <span id="biogasM3h">231.064</span> m³/h</div>
@@ -101,12 +108,15 @@
         <div class="unit">Annual Output (dekatherms): <span id="dekatherms">41000</span></div>
         <div class="unit">Annual Output (m³ biomethane): <span id="m3Biomethane">1100352</span></div>
         <div class="unit">Annual Output (MWh): <span id="mwhOutput">12015</span> MWh</div>
+        <div class="unit">Annual Income: €<span id="annualIncome">110035.20</span></div>
     </div>
 </div>
 
 <script>
-    const slider = document.getElementById("pigSlider");
+    const pigSlider = document.getElementById("pigSlider");
+    const priceSlider = document.getElementById("priceSlider");
     const selectedPigs = document.getElementById("selectedPigs");
+    const selectedPrice = document.getElementById("selectedPrice");
     
     // Output elements
     const biogasScfm = document.getElementById("biogasScfm");
@@ -120,6 +130,7 @@
     const dekatherms = document.getElementById("dekatherms");
     const m3Biomethane = document.getElementById("m3Biomethane");
     const mwhOutput = document.getElementById("mwhOutput");
+    const annualIncome = document.getElementById("annualIncome");
 
     const basePigs = 23500;
     
@@ -137,9 +148,11 @@
         mwhOutput: 12015
     };
 
-    slider.oninput = function () {
-        let pigs = this.value;
+    const updateValues = () => {
+        let pigs = pigSlider.value;
+        let price = priceSlider.value;
         selectedPigs.textContent = pigs;
+        selectedPrice.textContent = parseFloat(price).toFixed(2);
         
         // Calculate new values proportional to the number of pigs
         biogasScfm.textContent = (baseValues.biogasScfm * pigs / basePigs).toFixed(2);
@@ -153,7 +166,19 @@
         dekatherms.textContent = (baseValues.dekatherms * pigs / basePigs).toFixed(0);
         m3Biomethane.textContent = (baseValues.m3Biomethane * pigs / basePigs).toFixed(0);
         mwhOutput.textContent = (baseValues.mwhOutput * pigs / basePigs).toFixed(0);
-    }
+        
+        // Calculate and update the annual income based on price and biomethane volume
+        let annualBiomethane = baseValues.m3Biomethane * pigs / basePigs;
+        let income = annualBiomethane * price;
+        annualIncome.textContent = income.toFixed(2);
+    };
+
+    // Update values when sliders are moved
+    pigSlider.oninput = updateValues;
+    priceSlider.oninput = updateValues;
+
+    // Initialize with default values
+    updateValues();
 </script>
 
 </body>
