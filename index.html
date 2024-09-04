@@ -215,6 +215,8 @@
         m3Biomethane.textContent = parseInt(baseValues.m3Biomethane * pigs / basePigs).toLocaleString();
         mwhOutput.textContent = parseInt(baseValues.mwhOutput * pigs / basePigs).toLocaleString();
 
+        let scfm = (baseValues.biogasScfm * pigs / basePigs).toFixed(2);
+       
         // Update the dynamic image based on the scfm value
         if (scfm < 200) {
             dynamicImage.src = "https://roeslein.com/wp-content/smush-webp/2024/04/R5C_2902_Retouched-1-768x545.jpg.webp";
