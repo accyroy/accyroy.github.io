@@ -139,6 +139,10 @@
         <p>Price per m³ of Biomethane: €<span id="selectedPrice">0.10</span></p>
     </div>
 
+    <!-- Dynamic Image Section -->
+    <img src="https://roeslein.com/wp-content/smush-webp/2024/04/R5C_2902_Retouched-1-768x545.jpg.webp" alt="Biogas System" id="dynamicImage" class="dynamic-image">
+
+
     <!-- Output Section -->
     <div class="output">
         <div class="unit">Generated Biogas (scfm): <span id="biogasScfm">136</span> scfm</div>
@@ -210,6 +214,13 @@
         dekatherms.textContent = parseInt(baseValues.dekatherms * pigs / basePigs).toLocaleString();
         m3Biomethane.textContent = parseInt(baseValues.m3Biomethane * pigs / basePigs).toLocaleString();
         mwhOutput.textContent = parseInt(baseValues.mwhOutput * pigs / basePigs).toLocaleString();
+
+        // Update the dynamic image based on the scfm value
+        if (scfm < 200) {
+            dynamicImage.src = "https://roeslein.com/wp-content/smush-webp/2024/04/R5C_2902_Retouched-1-768x545.jpg.webp";
+        } else {
+            dynamicImage.src = "https://roeslein.com/wp-content/smush-webp/2024/04/Biogas-Upgrading-System-Mid-768x576.jpg.webp";
+        }
         
         // Calculate and update the annual income based on price and biomethane volume
         let annualBiomethane = baseValues.m3Biomethane * pigs / basePigs;
