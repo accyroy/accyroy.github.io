@@ -13,17 +13,29 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f0f0;
+            background-color: #e8f5e9; /* Light green background */
         }
         .container {
             background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+        .logo {
+            max-width: 150px; /* Set the width of the logo */
+            margin-bottom: 20px; /* Space between logo and heading */
+        }
+        h1 {
+            color: #2e7d32; /* Dark green title */
+            font-size: 2em;
+            margin-bottom: 20px;
         }
         .slider {
             width: 100%;
+            margin: 20px 0;
         }
         .output {
             margin-top: 20px;
@@ -31,12 +43,48 @@
         }
         .unit {
             margin: 10px 0;
+            padding: 10px;
+            background-color: #c8e6c9; /* Light green unit background */
+            border-radius: 8px;
+            color: #1b5e20; /* Darker green text */
+            font-weight: bold;
+        }
+        p {
+            font-size: 1.1em;
+            color: #388e3c; /* Medium green */
+        }
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 8px;
+            background: #a5d6a7; /* Light green for slider track */
+            outline: none;
+            border-radius: 5px;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #2e7d32; /* Dark green for slider thumb */
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #2e7d32;
+            cursor: pointer;
+            border-radius: 50%;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
+    <!-- Logo at the top -->
+    <img src="https://roesleinalternativeenergy.com/wp-content/uploads/2018/02/RAE-Logo-2.png" alt="RAE Logo" class="logo">
+    
     <h1>Pig Waste Converter</h1>
     <input type="range" min="1" max="100000" value="23500" class="slider" id="pigSlider">
     <p>Number of Pigs: <span id="selectedPigs">23500</span></p>
