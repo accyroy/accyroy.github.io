@@ -35,6 +35,15 @@
             object-position: left; /* Aligns the image to the left to remove right padding */
             clip-path: inset(0 15% 0 0); /* Crops 20% of the right side */
         }
+        .dynamic-image {
+        width: 100%;
+        max-width: 100%; /* Ensures the image fits within the container */
+        height: auto; /* Maintain aspect ratio */
+        margin: 20px 0;
+        border: 5px solid #c8e6c9; /* Add a greenish border */
+        border-radius: 10px; /* Make the corners rounded */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+        }
         h1 {
             color: #2e7d32; /* Dark green title */
             font-size: 2em;
@@ -139,8 +148,6 @@
         <p>Price per m³ of Biomethane: €<span id="selectedPrice">0.10</span></p>
     </div>
 
-    <!-- Dynamic Image Section -->
-    <img src="https://roeslein.com/wp-content/smush-webp/2024/04/R5C_2902_Retouched-1-768x545.jpg.webp" alt="Biogas System" id="dynamicImage" class="dynamic-image">
 
 
     <!-- Output Section -->
@@ -158,6 +165,10 @@
         <div class="unit">Annual Output (MWh): <span id="mwhOutput">12,015</span> MWh</div>
         <div class="unit">Annual Income: €<span id="annualIncome">110,035.20</span></div>
     </div>
+    
+    <!-- Dynamic Image Section -->
+    <img src="https://roeslein.com/wp-content/smush-webp/2024/04/R5C_2902_Retouched-1-768x545.jpg.webp" alt="Biogas System" id="dynamicImage" class="dynamic-image">
+
 </div>
 
 <script>
